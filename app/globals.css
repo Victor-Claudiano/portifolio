@@ -541,6 +541,23 @@ body.theme-pro::-webkit-scrollbar-thumb:hover {
   .theme-pro h2.pro-h1 {
     font-size: 16pt !important;
   }
+
+  /* CAUSA DO VÃO EM BRANCO: seções com framer-motion (whileInView) que não
+     entraram na viewport ficam em opacity:0 mas ocupam espaço. Força tudo
+     visível e sem transform/animação no print. */
+  .theme-pro *,
+  .theme-pro *::before,
+  .theme-pro *::after {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* min-h-screen do <main> vira 100vh no print e empurra página em branco */
+  main {
+    min-height: 0 !important;
+  }
 }
 
 /* ============================================================
