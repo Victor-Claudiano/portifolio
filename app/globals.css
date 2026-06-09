@@ -440,111 +440,34 @@ body.theme-pro::-webkit-scrollbar-thumb:hover {
 @media print {
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 7mm;
   }
 
-  /* Garante que as cores/realces sejam impressos */
   html,
   body {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  .no-print {
-    display: none !important;
-  }
+  .no-print,
   .pro-grain,
   .pro-mode-switch {
     display: none !important;
   }
+
+  /* divisores e os números "01 / sobre" somem para economizar linhas */
+  .theme-pro .pro-divider,
+  .theme-pro .pro-overline {
+    display: none !important;
+  }
+
   .theme-pro,
   body.theme-pro {
-    background: white !important;
+    background: #fff !important;
   }
 
-  /* Tipografia base compacta */
-  body.theme-pro {
-    font-size: 10.5pt !important;
-    line-height: 1.35 !important;
-  }
-
-  /* Seções: SEM break-inside avoid (era a causa dos vãos em branco),
-     padding vertical mínimo e sem padding horizontal grande */
-  .theme-pro section {
-    break-inside: auto !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  /* Header do topo também compacto */
-  .theme-pro header {
-    padding-top: 6px !important;
-    padding-bottom: 8px !important;
-  }
-
-  /* Divisores quase invisíveis, sem ocupar espaço */
-  .theme-pro .pro-divider {
-    margin: 10px 0 !important;
-  }
-
-  /* Desfaz o grid sticky de duas colunas: tudo flui em bloco único */
-  .theme-pro .grid {
-    display: block !important;
-    gap: 8px !important;
-  }
-  .theme-pro [class*="sticky"],
-  .theme-pro .sticky {
-    position: static !important;
-    top: auto !important;
-  }
-
-  /* Headings: derruba os text-5xl/6xl/7xl/8xl */
-  .theme-pro .pro-h1 {
-    font-size: 22pt !important;
-    line-height: 1.1 !important;
-    margin-bottom: 4px !important;
-  }
-  .theme-pro .pro-h2 {
-    font-size: 13pt !important;
-    line-height: 1.15 !important;
-  }
-  .theme-pro .pro-overline {
-    font-size: 8pt !important;
-  }
-
-  /* Espaçamentos verticais utilitários comuns */
-  .theme-pro .space-y-10 > * + *,
-  .theme-pro .space-y-8 > * + *,
-  .theme-pro .space-y-6 > * + *,
-  .theme-pro .space-y-4 > * + * {
-    margin-top: 6px !important;
-  }
-  .theme-pro .mt-20,
-  .theme-pro .mt-16,
-  .theme-pro .mt-10 {
-    margin-top: 8px !important;
-  }
-
-  /* Cards compactos, sem sombra, podem quebrar se precisar */
-  .theme-pro .pro-card {
-    padding: 8px 10px !important;
-    border: 1px solid #ddd !important;
-    border-radius: 6px !important;
-    box-shadow: none !important;
-    break-inside: auto;
-  }
-
-  /* Seção de contato: mantém os dados, mas encolhe o título gigante
-     ("Vamos trocar uma ideia?" é um h2.pro-h1) */
-  .theme-pro h2.pro-h1 {
-    font-size: 16pt !important;
-  }
-
-  /* CAUSA DO VÃO EM BRANCO: seções com framer-motion (whileInView) que não
-     entraram na viewport ficam em opacity:0 mas ocupam espaço. Força tudo
-     visível e sem transform/animação no print. */
+  /* tudo visível e estático (framer-motion deixa seções fora da viewport em
+     opacity:0, ocupando espaço em branco no PDF) */
   .theme-pro *,
   .theme-pro *::before,
   .theme-pro *::after {
@@ -552,11 +475,99 @@ body.theme-pro::-webkit-scrollbar-thumb:hover {
     transform: none !important;
     animation: none !important;
     transition: none !important;
+    box-shadow: none !important;
   }
 
-  /* min-h-screen do <main> vira 100vh no print e empurra página em branco */
+  /* tipografia base compacta */
+  body.theme-pro {
+    font-size: 8.5pt !important;
+    line-height: 1.18 !important;
+  }
+
+  /* esconde os subtítulos/captions de cada seção (não essenciais no PDF) */
+  .theme-pro section .grid > div:first-child > p {
+    display: none !important;
+  }
   main {
     min-height: 0 !important;
+  }
+
+  /* seções coladas, sem padding lateral grande */
+  .theme-pro section {
+    break-inside: auto !important;
+    padding: 2px 0 !important;
+  }
+  .theme-pro header {
+    padding: 0 0 4px !important;
+  }
+
+  /* layout em bloco único, sem sticky, gaps mínimos */
+  .theme-pro .grid {
+    display: block !important;
+    gap: 4px !important;
+  }
+  .theme-pro [class*="sticky"],
+  .theme-pro .sticky {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* contatos do header em linha (evita 5 linhas empilhadas no print) */
+  .theme-pro header .grid {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 2px 16px !important;
+  }
+
+  /* headings compactos */
+  .theme-pro .pro-h1 {
+    font-size: 16pt !important;
+    line-height: 1.05 !important;
+    margin: 0 0 2px !important;
+  }
+  .theme-pro h2.pro-h1 {
+    font-size: 13pt !important;
+  }
+  .theme-pro .pro-h2 {
+    font-size: 11pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 2px !important;
+  }
+
+  /* margens utilitárias grandes viram mínimas */
+  .theme-pro .mt-20,
+  .theme-pro .mt-16,
+  .theme-pro .mt-10,
+  .theme-pro .mt-8 {
+    margin-top: 4px !important;
+  }
+  .theme-pro .mt-6,
+  .theme-pro .mt-5 {
+    margin-top: 3px !important;
+  }
+  .theme-pro .space-y-10 > * + *,
+  .theme-pro .space-y-8 > * + *,
+  .theme-pro .space-y-6 > * + *,
+  .theme-pro .space-y-5 > * + *,
+  .theme-pro .space-y-4 > * + *,
+  .theme-pro .space-y-3 > * + *,
+  .theme-pro .space-y-2 > * + * {
+    margin-top: 2px !important;
+  }
+  .theme-pro p {
+    margin: 0 0 1.5px !important;
+  }
+
+  /* cards e chips compactos */
+  .theme-pro .pro-card {
+    padding: 4px 7px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    break-inside: auto !important;
+  }
+  .theme-pro .pro-chip {
+    padding: 0 5px !important;
+    font-size: 7pt !important;
   }
 }
 

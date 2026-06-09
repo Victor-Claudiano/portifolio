@@ -12,8 +12,8 @@ export default function ProAbout() {
     >
       <div className="space-y-5 text-base sm:text-lg leading-relaxed max-w-2xl">
         <p>
-          Desenvolvedor full stack com foco em construir sistemas que escalam de
-          verdade, do componente React ao cluster Kubernetes.
+          Desenvolvedor full stack e DevOps com atuação ponta a ponta, da
+          interface à infraestrutura.
         </p>
         <p>
           No back-end, trabalho com{" "}

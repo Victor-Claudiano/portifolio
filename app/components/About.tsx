@@ -17,10 +17,9 @@ export default function About() {
 
         <div className="space-y-5 text-sm sm:text-base leading-relaxed">
           <p>
-            Desenvolvedor <span className="hl-amber">full stack</span> com foco
-            em construir sistemas que escalam de verdade, do componente{" "}
-            <span className="hl-cyan">React</span> ao cluster{" "}
-            <span className="hl-cyan">Kubernetes</span>.
+            Desenvolvedor <span className="hl-amber">full stack</span> e{" "}
+            <span className="hl-amber">DevOps</span> com atuação ponta a ponta,
+            da interface à infraestrutura.
           </p>
           <p>
             No <span className="hl-amber">back-end</span>, trabalho com{" "}

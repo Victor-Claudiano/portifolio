@@ -91,19 +91,6 @@ export default function ProContact() {
             ⤓ Imprimir / Salvar PDF
           </button>
         </div>
-
-        <div className="pro-divider mt-20" />
-
-        <footer
-          className="mt-8 flex flex-wrap justify-between gap-4 text-xs"
-          style={{ color: "var(--muted-2)" }}
-        >
-          <span>
-            © {new Date().getFullYear()} Victor Hugo Claudiano. Construído à mão
-            com Next.js, Tailwind e Framer Motion.
-          </span>
-          <span className="font-mono">v1.0 · pt-BR</span>
-        </footer>
       </div>
     </motion.section>
   );
