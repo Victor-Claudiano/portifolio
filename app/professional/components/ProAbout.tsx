@@ -50,16 +50,6 @@ export default function ProAbout() {
           compliance) ajuda a tomar decisões técnicas conscientes de privacidade
           e regulação.
         </p>
-        <blockquote
-          className="border-l-2 pl-5 italic mt-8"
-          style={{
-            borderColor: "var(--accent)",
-            color: "var(--muted)",
-          }}
-        >
-          Aberto a conversas sobre produtos desafiadores, times que valorizam
-          qualidade técnica e problemas que não cabem num único repositório.
-        </blockquote>
       </div>
     </ProSection>
   );
