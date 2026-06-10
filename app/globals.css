@@ -461,6 +461,11 @@ body.theme-pro::-webkit-scrollbar-thumb:hover {
     display: none !important;
   }
 
+  /* seção de contato não faz sentido no PDF (os contatos já estão no topo) */
+  .theme-pro #contact {
+    display: none !important;
+  }
+
   .theme-pro,
   body.theme-pro {
     background: #fff !important;
