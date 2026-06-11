@@ -79,6 +79,18 @@ export default function ProContact() {
           >
             GitHub ↗
           </a>
+          {/* gerado no CI a cada deploy (não existe no `next dev`) */}
+          <a
+            href="../curriculo-victor-claudiano.pdf"
+            download="curriculo-victor-claudiano.pdf"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-md font-medium text-sm border transition-transform hover:-translate-y-0.5 no-print"
+            style={{
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+            }}
+          >
+            ⤓ Baixar PDF
+          </a>
           <button
             onClick={() => typeof window !== "undefined" && window.print()}
             className="inline-flex items-center gap-2 px-5 py-3 rounded-md font-medium text-sm border transition-transform hover:-translate-y-0.5 no-print"
@@ -88,7 +100,7 @@ export default function ProContact() {
               background: "transparent",
             }}
           >
-            ⤓ Imprimir / Salvar PDF
+            ⤓ Imprimir
           </button>
         </div>
       </div>

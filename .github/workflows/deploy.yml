@@ -25,6 +25,30 @@ jobs:
           enablement: true
           static_site_generator: next
       - run: npm run build
+      - name: Gera PDF do currículo com links clicáveis
+        run: |
+          # serve ./out sob /portifolio para reproduzir os paths do Pages
+          mkdir -p /tmp/pdfserve
+          ln -s "$PWD/out" /tmp/pdfserve/portifolio
+          python3 -m http.server 8080 --directory /tmp/pdfserve &
+          SERVER_PID=$!
+          sleep 2
+          google-chrome --headless=new --disable-gpu --no-sandbox \
+            --virtual-time-budget=10000 --run-all-compositor-stages-before-draw \
+            --no-pdf-header-footer \
+            --print-to-pdf="$PWD/out/curriculo-victor-claudiano.pdf" \
+            http://localhost:8080/portifolio/professional/
+          kill $SERVER_PID
+          python3 - <<'EOF'
+          import re, sys
+          raw = open('out/curriculo-victor-claudiano.pdf', 'rb').read()
+          uris = {u.decode('latin1') for u in re.findall(rb'/URI\s*\((.*?)\)', raw)}
+          faltando = [n for n in ('github.com/VictorHClaudiano', 'linkedin.com/in/victorclaudiano')
+                      if not any(n in u for u in uris)]
+          if faltando:
+              sys.exit(f'PDF gerado sem links clicaveis: {faltando}')
+          print('PDF ok, links:', sorted(uris))
+          EOF
       - run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
