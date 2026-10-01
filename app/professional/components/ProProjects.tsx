@@ -65,7 +65,7 @@ export default function ProProjects() {
       </div>
 
       <motion.a
-        href="https://github.com/VictorHClaudiano"
+        href="https://github.com/Victor-Claudiano"
         target="_blank"
         rel="noreferrer"
         initial={{ opacity: 0, y: 12 }}
@@ -86,7 +86,7 @@ export default function ProProjects() {
               className="mt-3 font-mono text-xl sm:text-2xl font-semibold break-all"
               style={{ color: "var(--accent)" }}
             >
-              github.com/VictorHClaudiano
+              github.com/Victor-Claudiano
             </div>
           </div>
           <span

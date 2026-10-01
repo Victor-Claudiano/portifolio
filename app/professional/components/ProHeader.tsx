@@ -50,12 +50,12 @@ export default function ProHeader() {
             <span aria-hidden>in</span> linkedin.com/in/victorclaudiano
           </a>
           <a
-            href="https://github.com/VictorHClaudiano"
+            href="https://github.com/Victor-Claudiano"
             target="_blank"
             rel="noreferrer"
             className="pro-link inline-flex items-center gap-2"
           >
-            <span aria-hidden>◐</span> github.com/VictorHClaudiano
+            <span aria-hidden>◐</span> github.com/Victor-Claudiano
           </a>
           <span
             className="inline-flex items-center gap-2"

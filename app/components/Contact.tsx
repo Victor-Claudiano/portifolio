@@ -25,9 +25,9 @@ const LINKS = [
   },
   {
     label: "github",
-    cmd: "git clone github.com/VictorHClaudiano",
-    href: "https://github.com/VictorHClaudiano",
-    display: "github.com/VictorHClaudiano",
+    cmd: "git clone github.com/Victor-Claudiano",
+    href: "https://github.com/Victor-Claudiano",
+    display: "github.com/Victor-Claudiano",
   },
 ];
 

@@ -43,7 +43,7 @@ jobs:
           import re, sys
           raw = open('out/curriculo-victor-claudiano.pdf', 'rb').read()
           uris = {u.decode('latin1') for u in re.findall(rb'/URI\s*\((.*?)\)', raw)}
-          faltando = [n for n in ('github.com/VictorHClaudiano', 'linkedin.com/in/victorclaudiano')
+          faltando = [n for n in ('github.com/Victor-Claudiano', 'linkedin.com/in/victorclaudiano')
                       if not any(n in u for u in uris)]
           if faltando:
               sys.exit(f'PDF gerado sem links clicaveis: {faltando}')

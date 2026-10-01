@@ -68,7 +68,7 @@ export default function ProContact() {
             LinkedIn ↗
           </a>
           <a
-            href="https://github.com/VictorHClaudiano"
+            href="https://github.com/Victor-Claudiano"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-md font-medium text-sm border transition-transform hover:-translate-y-0.5"

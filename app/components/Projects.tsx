@@ -58,7 +58,7 @@ export default function Projects() {
       </motion.div>
 
       <motion.a
-        href="https://github.com/VictorHClaudiano"
+        href="https://github.com/Victor-Claudiano"
         target="_blank"
         rel="noreferrer"
         initial={{ opacity: 0, y: 14 }}
@@ -76,7 +76,7 @@ export default function Projects() {
           <div className="font-mono text-sm">
             <div className="dim">$ git clone</div>
             <div className="mt-1 text-phosphor-500 text-glow text-base sm:text-lg break-all">
-              https://github.com/VictorHClaudiano
+              https://github.com/Victor-Claudiano
             </div>
           </div>
           <span className="hl-amber text-2xl sm:text-3xl shrink-0 group-hover:translate-x-1 transition-transform">
@@ -112,7 +112,7 @@ export default function Projects() {
 
         <div className="mt-6 text-xs dim flex items-center gap-2">
           <span className="hl-cyan">◐</span>
-          <span>github.com/VictorHClaudiano</span>
+          <span>github.com/Victor-Claudiano</span>
         </div>
       </motion.a>
     </Section>
